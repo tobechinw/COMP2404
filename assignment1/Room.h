@@ -2,6 +2,7 @@
 #define ROOM_H
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "defs.h"
 #include "Reservation.h"
 
@@ -19,6 +20,7 @@ class Room{
         bool isMatch(string bt, int cap, bool f);
         bool lessThan(Room& r);
         bool addReservation(string customerName, Date& d, int duration);
+        void printRoom();
         void printReservations();
         void updateReservations(Date& currentDate); //bonus function
     private:

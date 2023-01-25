@@ -14,7 +14,7 @@ int Room::getRoomNumber() {
 }
 
 bool Room::isMatch(string bt, int cap, bool f) {
-    if(strcmp(bedType, bt) == 0 && capacity >= cap && !(hasFridge ^ f)){
+    if(strcmp(bedType.c_str(), bt.c_str()) == 0 && capacity >= cap && !(hasFridge ^ f)){
         return true;
     }
     return false;
@@ -29,6 +29,10 @@ bool Room::addReservation(string customerName, Date &d, int duration) {
         return false;
     }
     return true;
+}
+
+void Room::printRoom(){
+    cout<<"Room Number: "<<roomNumber<<endl<<"Bed Type: "<<bedType<<endl<<"Capacity: "<<capacity<<endl<<"Fridge?: "<<hasFridge<<endl;
 }
 
 void Room::printReservations() {

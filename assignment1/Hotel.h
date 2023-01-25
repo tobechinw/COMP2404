@@ -9,9 +9,9 @@
 
 class Hotel{
     private:
+        Room* rooms[MAX_ROOMS];
         int numRooms;
-        Room* rooms;
-    public:
+public:
         //constructor
         Hotel();
 
@@ -21,7 +21,7 @@ class Hotel{
         bool getRoom(int roomNumber, Room **room);
         bool addReservation(string customer, string bedType, int capacity, bool fr, Date& date, int duration);
         void updateReservations(Date& currentDate); //bonus function
-        void printRooms();
+        void print();
         int requestReservation();
         void printReservations();
 
