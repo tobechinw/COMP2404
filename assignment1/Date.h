@@ -33,6 +33,11 @@ class Date {
 		// advance this Date by 1 day
 		void incDate();
 		void print();
+
+        //additional functions
+        bool equals(Date& d);
+        bool lessThan(Date& d);
+        void addDays(int days);
 	
 	private:
 		//functions

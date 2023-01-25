@@ -86,3 +86,36 @@ int Date::getMaxDay(){
 	}
 }
 
+
+bool Date::equals(Date &d) {
+    if(day == d.day && month == d.month && year == d.year){
+        return true;
+    }
+    return false;
+}
+
+bool Date::lessThan(Date &d) {
+    if(d.year == year){
+        if(d.month == month){
+            if(d.day == day){
+                return false;
+            }else if(day < d.day){
+                return true;
+            }
+        }else if(month < d.month){
+            return true;
+        }
+    }else if(year < d.year){
+        return true;
+    }
+
+    return false;
+}
+
+void Date::addDays(int days) {
+    for(int i = 0; i < days; ++i){
+        incDate();
+    }
+}
+
+
