@@ -7,7 +7,7 @@ Character.o: Character.h Character.cc
 	g++ -c Character.cc
 
 battle.o: battle.h battle.cc
-	g++ -c Battle.cc
+	g++ -c battle.cc
 
 clean:
 	rm -f p1 *.o

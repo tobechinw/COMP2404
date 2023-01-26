@@ -5,7 +5,7 @@ using namespace std;
 
 class Character{
     public:
-        Character(string name, int maxHealth, int damage);
+        Character(const string&, int maxHealth, int damage);
 
         string getName();
         void takeDamage(int damage);

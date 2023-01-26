@@ -19,19 +19,21 @@ int main(){
     cout<<"Enter in orc parameters"<<endl;
     cin>>name>>maxHealth>>damage;
     Character orc = Character(name, maxHealth, damage);
+    cout<<endl;
 
     fighter.print();
     orc.print();
+    cout<<endl;
 
+    cout<<"Gondor fight: "<<endl;
     Gondor::fight(fighter, orc);
-    Mordor::fight(fighter, orc);
-
-
     fighter.print();
     orc.print();
+    cout<<endl;
 
-
-
-
+    cout<<"Mordor fight: "<<endl;
+    Mordor::fight(fighter, orc);
+    fighter.print();
+    orc.print();
     return 0;
 }

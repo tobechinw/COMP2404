@@ -4,11 +4,11 @@
 using namespace std;
 
 
-Character::Character(string name, int maxHealth, int damage) {
+Character::Character(const string& name, int maximumHealth, int damage) {
     this->name = name;
-    this->maxHealth = maxHealth;
+    this->maxHealth = maximumHealth;
     this->damage = damage;
-    this->currentHealth = maxHealth;
+    this->currentHealth = maximumHealth;
 }
 
 string Character::getName() {
@@ -16,10 +16,10 @@ string Character::getName() {
 }
 
 void Character::takeDamage(int damage) {
-    this->currentHealth -= damage;
+    currentHealth -= damage;
 
-    if(this->currentHealth < 0){
-        this->currentHealth = 0;
+    if(currentHealth < 0){
+        currentHealth = 0;
     }
 }
 
@@ -28,5 +28,5 @@ int Character::strike() {
 }
 
 void Character::print() {
-    cout<<name<<" has a current health of "<<currentHealth<<endl;
+    cout<<name<<" has a health of "<<currentHealth<<endl;
 }
