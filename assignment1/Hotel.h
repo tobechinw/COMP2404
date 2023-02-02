@@ -14,6 +14,8 @@ class Hotel{
 public:
         //constructor
         Hotel();
+        //destructor
+//        ~Hotel();
 
 
         bool addRoom(int roomNumber, string bedType, int capacity, bool fr);

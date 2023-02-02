@@ -16,16 +16,40 @@ void Reservation::setDuration(int duration) {
 }
 
 bool Reservation::overlaps(Reservation &r) {
-    return true;
+    Date first = this->checkInDate;
+    Date second = r.checkInDate;
+
+    if(first.lessThan(second)){
+        int numDays = this->numDays;
+        first.addDays(numDays);
+        if(!first.lessThan(second) && !first.equals(second)){
+            return true;
+        }
+    }else if(second.lessThan(first)){
+        second.addDays(r.numDays);
+        if(!second.lessThan(first) && !second.equals(first)){
+            return true;
+        }
+    }
+    return false;
 }
 
 
 bool Reservation::lessThan(Reservation &res) {
-    return true;
+    if(this->overlaps(res)){
+        return false;
+    }
+    else if(this->checkInDate.lessThan(res.checkInDate)){
+        return true;
+    }
+    return false;
 }
 
 bool Reservation::lessThan(Date &d) {
-    return true;
+    if(checkInDate.lessThan(d)){
+        return true;
+    }
+    return false;
 }
 
 void Reservation::print() {

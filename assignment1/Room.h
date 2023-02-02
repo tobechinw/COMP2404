@@ -6,13 +6,11 @@
 #include "defs.h"
 #include "Reservation.h"
 
-
-
 class Room{
     public:
         //constructor
         Room(int roomNumber, string bedType, int capacity, bool hasFridge);
-
+//        ~Room();
         //getter
         int getRoomNumber();
 
