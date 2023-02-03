@@ -25,11 +25,16 @@ bool Reservation::overlaps(Reservation &r) {
         if(!first.lessThan(second) && !first.equals(second)){
             return true;
         }
+        return false;
     }else if(second.lessThan(first)){
         second.addDays(r.numDays);
         if(!second.lessThan(first) && !second.equals(first)){
             return true;
         }
+        return false;
+    }
+    if(r.numDays > 0 && numDays > 0){
+        return true;
     }
     return false;
 }
@@ -54,4 +59,5 @@ bool Reservation::lessThan(Date &d) {
 
 void Reservation::print() {
     cout<<"Reservation for "<<clientName<<"on for "<<numDays<<" days"<<endl;
+    this->checkInDate.print();
 }

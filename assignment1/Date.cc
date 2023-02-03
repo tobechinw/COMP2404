@@ -71,7 +71,7 @@ void Date::incDate(){
 }
 
 void Date::print(){
-	cout << getMonthName()<<" "<<day<<", "<<year;
+	cout << getMonthName()<<" "<<day<<", "<<year<<endl;
 }
 
 
