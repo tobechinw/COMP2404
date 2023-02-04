@@ -15,8 +15,7 @@ public:
         //constructor
         Hotel();
         //destructor
-//        ~Hotel();
-
+        ~Hotel();
 
         bool addRoom(int roomNumber, string bedType, int capacity, bool fr);
         bool deleteRoom(int roomNumber);

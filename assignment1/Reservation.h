@@ -13,7 +13,9 @@ class Reservation{
         bool lessThan(Reservation& res);
         bool lessThan(Date& d);
         void print();
-    private:
+
+
+private:
         Date checkInDate;
         string clientName;
         int numDays;

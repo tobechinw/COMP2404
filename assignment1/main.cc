@@ -142,7 +142,36 @@ int testResOverlap(){
 
     std::cout<<endl;
     if (!resOverlap(r9, r10, false)) score = 0;
-    
+
+    //when the first reservation is greater than the second in terms of check in date, with no overlap
+    Date date9(2023, 2, 4);
+    Date date10(2023, 2, 1);
+    Reservation r11("Tobechi", date9, 2);
+    Reservation r12("Adanna", date10, 1);
+    if (!resOverlap(r11, r12, false)) score = 0;
+
+    //when the first reservation is greater than the second in terms of check in date, with overlap
+    Date date11(2023, 2, 4);
+    Date date12(2023, 2, 1);
+    Reservation r13("Chibuzo", date11, 2);
+    Reservation r14("Osa", date12, 5);
+    if (!resOverlap(r13, r14, true)) score = 0;
+
+    //when the first reservation is less than the second in terms of check in date, with no overlap
+    Date date13(2023, 2, 1);
+    Date date14(2023, 2, 4);
+    Reservation r15("Obinna", date13, 2);
+    Reservation r16("Erilim", date14, 5);
+    if(!resOverlap(r15, r16, false)) score = 0;
+
+    //when the first reservation is less than the second in terms of check in date, with overlap
+    Date date15(2023, 2, 1);
+    Date date16(2023, 2, 4);
+    Reservation r17("Obinna", date15, 4);
+    Reservation r18("Erilim", date16, 5);
+    if(!resOverlap(r17, r18, true)) score = 0;
+
+
     cout<<"Score: "<<score<<endl;
     
     return score;
@@ -570,13 +599,15 @@ int testUpdateReservations(){
     }
     cout<<"Printing reservations:"<<endl;
     gt.printReservations();
-    cout<<"Updating reservations:"<<endl;
     gt.updateReservations(dates[NUM_NAMES-2]);
     //capture the output and put in a stringstream
     //so we can make sure things print properly
     streambuf* oldCoutStreamBuf = std::cout.rdbuf();
     ostringstream strCout;
     std::cout.rdbuf( strCout.rdbuf() );
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
 
     gt.printReservations();
 

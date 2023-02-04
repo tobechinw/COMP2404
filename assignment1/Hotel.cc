@@ -1,10 +1,18 @@
 #include "Hotel.h"
 
-
+//constructor
 Hotel::Hotel() {
     numRooms = 0;
 }
 
+//destructor for statically allocated memory
+Hotel::~Hotel() {
+    for(int i = 0; i < numRooms; ++i){
+        delete rooms[i];
+    }
+}
+
+// adds room to a hotel
 bool Hotel::addRoom(int roomNumber, string bedType, int capacity, bool fr) {
     if(numRooms == MAX_ROOMS){
         return false;
@@ -27,6 +35,7 @@ bool Hotel::addRoom(int roomNumber, string bedType, int capacity, bool fr) {
     return true;
 }
 
+// removes room from a hotel
 bool Hotel::deleteRoom(int roomNumber) {
     for(int i = 0; i < numRooms; ++i){
         if(rooms[i]->getRoomNumber() == roomNumber){
@@ -39,10 +48,9 @@ bool Hotel::deleteRoom(int roomNumber) {
         }
     }
     return false;
-
-
 }
 
+// checks if a room with given room number is available, and returns it
 bool Hotel::getRoom(int roomNumber, Room **room) {
     for(int i = 0; i < numRooms; ++i){
         if(rooms[i]->getRoomNumber() == roomNumber){
@@ -53,6 +61,7 @@ bool Hotel::getRoom(int roomNumber, Room **room) {
     return false;
 }
 
+// adds reservation to room in hotel that meets criteria
 bool Hotel::addReservation(string customer, string bedType, int capacity, bool fr, Date &date, int duration) {
     for(int i = 0; i < numRooms; ++i){
         if(rooms[i]->isMatch(bedType, capacity, fr)){
@@ -65,22 +74,23 @@ bool Hotel::addReservation(string customer, string bedType, int capacity, bool f
 
 }
 
+// updates reservations given current date
 void Hotel::updateReservations(Date &currentDate) {
     for(int i = 0; i < numRooms; ++i){
         rooms[i]->updateReservations(currentDate);
     }
-    cout <<"Nothing for now"<<endl;
 }
 
+//prints rooms in hotel
 void Hotel::print() {
     for(int i = 0; i < numRooms; ++i){
         rooms[i]->printRoom();
     }
 }
 
+//prints reservation for each room
 void Hotel::printReservations() {
     for(int i = 0; i < numRooms; ++i){
-        rooms[i]->printRoom();
         rooms[i]->printReservations();
     }
 }

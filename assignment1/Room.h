@@ -10,9 +10,13 @@ class Room{
     public:
         //constructor
         Room(int roomNumber, string bedType, int capacity, bool hasFridge);
-//        ~Room();
+        //destructor
+        ~Room();
+
+
         //getter
         int getRoomNumber();
+
 
         //helper functions
         bool isMatch(string bt, int cap, bool f);

@@ -1,7 +1,7 @@
-all: p1 Hotel.o Room.o Reservation.o Date.o
+all: a1 Hotel.o Room.o Reservation.o Date.o
 
-p1: Hotel.o Room.o Reservation.o Date.o main.cc
-	g++ -o p1 Hotel.o Room.o Reservation.o Date.o main.cc
+a1: Hotel.o Room.o Reservation.o Date.o main.cc
+	g++ -o a1 Hotel.o Room.o Reservation.o Date.o main.cc
 
 Hotel.o: Hotel.cc Hotel.h Room.h Reservation.h
 	g++ -c Hotel.cc
@@ -16,4 +16,4 @@ Date.o: Date.cc Date.h
 	g++ -c Date.cc
 
 clean:
-	rm -f *.o p1
+	rm -f *.o a1

@@ -86,7 +86,7 @@ int Date::getMaxDay(){
 	}
 }
 
-
+// checks if two dates are equal
 bool Date::equals(Date &d) {
     if(day == d.day && month == d.month && year == d.year){
         return true;
@@ -94,6 +94,7 @@ bool Date::equals(Date &d) {
     return false;
 }
 
+// checks if date is less than the one being compared to it
 bool Date::lessThan(Date &d) {
     if(d.year == year){
         if(d.month == month){
@@ -112,6 +113,7 @@ bool Date::lessThan(Date &d) {
     return false;
 }
 
+// adds number of days specified in parameter to the date
 void Date::addDays(int days) {
     for(int i = 0; i < days; ++i){
         incDate();
