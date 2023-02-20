@@ -258,6 +258,7 @@ int TestControl::albumArrayTest(){
         }
         ++count;
     }
+
     
 
     cout<<"Adding Albums to AlbumArray"<<endl;
@@ -292,6 +293,8 @@ int TestControl::albumArrayTest(){
         if (alb != albs[i]){
             cout <<"Could not find "<<endl;
             albs[i]->print();
+            cout<<"printing aa"<<endl;
+            alb->print();
             foundall = false;
         }else{
             cout<<"Found "<<endl;
@@ -490,7 +493,7 @@ int TestControl::photoGramTest(){
     }
 
 
-    
+
 
     int photoIndex = ran(0,5);
     int albumIndex = ran(0,5);
@@ -563,7 +566,7 @@ int TestControl::clientTest(){
     }
 
     pressEnterToContinue();
-    
+
 
     cout<<endl<<"Testing displayLocal photo "<<photoTitles[albumIndex][photoIndex]
          <<" from "<<albumTitles[albumIndex]<<endl<<endl;
@@ -595,7 +598,7 @@ int TestControl::clientTest(){
     cout<<"**MANUAL MARK** Printing all albums from local memory, no photos (should be 1 album):"<<endl;
     client.printLocalAlbums();
     pressEnterToContinue();
-   
+
     client.displayLocalAlbums();
     cout<<endl<<"**MANUAL MARK** Displaying all photos from local memory (should be 1 album, 5 photos): "<<endl;
     pressEnterToContinue();

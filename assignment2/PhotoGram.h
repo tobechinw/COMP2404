@@ -1,28 +1,28 @@
 #ifndef PHOTOGRAM_H
 #define PHOTOGRAM_H
 
-#include <iostream>
+
+#include "defs.h"
+#include "AlbumArray.h"
 #include <string>
-#include "Album.h"
+#include <iostream>
+
 
 class PhotoGram{
+    private:
+        AlbumArray *albumArray;
     public:
-        bool addAlbum(string title, string description);
+        PhotoGram();
+        ~PhotoGram();
+        bool addAlbum(string albumTitle, string description);
+        bool removeAlbum(string albumTitle);
         bool addPhoto(string albumTitle, Photo photo);
-        void removeAlbum(string albumTitle);
-        void removePhoto(string albumTitle, string photoTitle);
-
-        void downloadAlbum(string albumTitle);
-        void downloadPhoto(string albumTitle, string photoTitle);
-        void printAlbums();
-        void displayAlbums();
-
+        bool removePhoto(string albumTitle, string photoTitle);
+        Album* downloadAlbum(string albumTitle) const;
+        Photo* downloadPhoto(string albumTitle, string photoTitle) const;
+        void printAlbums() const;
+        void displayAlbums() const;
 };
-
-
-
-
-
 
 
 #endif

@@ -4,25 +4,32 @@
 #include <iostream>
 #include <string>
 #include "Photo.h"
+#include "PhotoArray.h"
+//#include "AlbumArray.h"
 
 
 class Album{
     private:
         string title;
         string description;
+        PhotoArray *photoArray;
 
     public:
-        bool equals(string albumTitle);
-        bool lessThan(Album album);
-        bool addPhoto(Photo photo);
-        bool addPhoto(int index, Photo photo);
-        void getPhoto(int index);
-        void getPhoto(string songTitle);
-        void removePhoto(int index);
-        void removePhoto(string songTitle);
-        int size();
-        void print();
-        void display();
+        Album(const string& title, const string& description);
+        Album(const Album &album);
+        ~Album();
+        string getTitle() const;
+        bool equals(string albumTitle) const;
+        bool lessThan(Album &alb) const;
+        bool addPhoto(Photo* photo);
+        bool addPhoto(int index, Photo* photo);
+        Photo* getPhoto(int index) const;
+        Photo* getPhoto(string title) const;
+        Photo* removePhoto(int index);
+        Photo* removePhoto(string songTitle);
+        int size() const;
+        void print() const;
+        void display() const;
 };
 
 
