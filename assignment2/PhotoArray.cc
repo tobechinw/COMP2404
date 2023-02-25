@@ -66,11 +66,15 @@ Photo *PhotoArray::remove(int index) {
         return nullptr;
     }
     Photo* photo = photoPtrs[index];
-    for(int i = index; i < numPhotos; ++i){
-        photoPtrs[i] = photoPtrs[i+1];
+    if(photo != nullptr){
+        for(int i = index; i < numPhotos; ++i){
+            photoPtrs[i] = photoPtrs[i+1];
+        }
+        numPhotos--;
+        return photo;
     }
-    numPhotos--;
-    return photo;
+    return nullptr;
+
 }
 
 

@@ -5,7 +5,6 @@
 
 
 class AlbumArray{
-//    friend bool Album::addPhoto(Photo *photo) {};
     private:
         Album ** albumArray;
         int numAlbums;

@@ -8,12 +8,13 @@ PhotoArray::PhotoArray() {
 
 PhotoArray::PhotoArray(const PhotoArray &photoArr): numPhotos(photoArr.numPhotos){
     photoPtrs = new Photo*[MAX_ARRAY];
-    for(int i = 0; i < MAX_ARRAY; ++i){
-        if(photoArr.photoPtrs[i] != nullptr){
-            photoPtrs[i] = new Photo(* (photoArr.photoPtrs[i]) );
-        }else{
-            photoPtrs[i] = nullptr;
-        }
+    for(int i = 0; i < numPhotos; ++i){
+        photoPtrs[i] = new Photo(* (photoArr.photoPtrs[i]) );
+//        if(photoArr.photoPtrs[i] != nullptr){
+//            photoPtrs[i] = new Photo(* (photoArr.photoPtrs[i]) );
+//        }else{
+//            photoPtrs[i] = nullptr;
+//        }
     }
 }
 

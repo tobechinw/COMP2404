@@ -12,12 +12,17 @@ Client::~Client() {
 bool Client::downloadAlbum(PhotoGram *source, string title) {
     Album* album = source->downloadAlbum(title);
     if(album != nullptr){
-        return albumArray->add(album);
+        if( !albumArray->add(album) ){
+            cout<<"Album could not be added"<<endl;
+            return false;
+        }
+        return true;
     }
+    cout<<"Album could not be found in PhotoGram"<<endl;
     return false;
 }
 
-bool Client::displayOnlinePhoto(PhotoGram *source, string albumTitle, string photoTitle) {
+bool Client::displayOnlinePhoto(PhotoGram *source, string albumTitle, string photoTitle) const{
     Album* album = source->downloadAlbum(albumTitle);
     if(album != nullptr){
         Photo* photo = album->getPhoto(photoTitle);
@@ -25,11 +30,14 @@ bool Client::displayOnlinePhoto(PhotoGram *source, string albumTitle, string pho
             photo->display();
             return true;
         }
+        cout<<"Photo could not be found"<<endl;
+        return false;
     }
+    cout<<"Album could not be found in PhotoGram"<<endl;
     return false;
 }
 
-bool Client::displayLocalPhoto(string albumTitle, string photoTitle) {
+bool Client::displayLocalPhoto(string albumTitle, string photoTitle) const{
     Album* album = albumArray->get(albumTitle);
     if(album != nullptr){
         Photo* photo = album->getPhoto(photoTitle);
@@ -37,11 +45,13 @@ bool Client::displayLocalPhoto(string albumTitle, string photoTitle) {
             photo->display();
             return true;
         }
+        cout<<"Photo could not be found"<<endl;
     }
+    cout<<"Album could not be found"<<endl;
     return false;
 }
 
-void Client::printLocalAlbums() {
+void Client::printLocalAlbums() const{
     for(int i = 0; i < albumArray->size(); ++i){
         Album* album = albumArray->get(i);
         if(album!= nullptr){
@@ -50,7 +60,7 @@ void Client::printLocalAlbums() {
     }
 }
 
-void Client::displayLocalAlbums() {
+void Client::displayLocalAlbums() const{
     for(int i = 0; i < albumArray->size(); ++i){
         Album *album = albumArray->get(i);
         if(album != nullptr){

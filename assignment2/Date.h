@@ -14,7 +14,8 @@ class Date {
 		Date();
 		Date(int year, int month, int day);
 		Date(const Date&);
-		
+		~Date();
+
 		//setters
 		void setDay( int);
 		void setMonth(int);

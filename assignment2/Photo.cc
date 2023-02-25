@@ -8,12 +8,16 @@ Photo::Photo(const string &photoTitle, const Date &date, const string &content):
 
 Photo::Photo(): title("tobechi's photo"), createdAt(new Date(2023,1,1)), photoContent("RCMP Violation") {}
 
-Photo::Photo(Photo& photo): title(photo.title), createdAt(photo.createdAt) {
+Photo::~Photo(){
+    delete createdAt;
+}
+
+Photo::Photo(const Photo& photo): title(photo.title), createdAt(new Date(*photo.createdAt)) {
     photoContent = photo.photoContent ;
 }
 
 bool Photo::equals(string photoTitle) const{
-    if(photoTitle == title ){
+    if(photoTitle == title){
         return true;
     }
     return false;

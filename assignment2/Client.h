@@ -15,10 +15,10 @@ class Client{
         Client();
         ~Client();
         bool downloadAlbum(PhotoGram* source, string title);
-        bool displayOnlinePhoto(PhotoGram* source, string albumTitle, string photoTitle);
-        bool displayLocalPhoto(string albumTitle, string photoTitle);
-        void printLocalAlbums();
-        void displayLocalAlbums();
+        bool displayOnlinePhoto(PhotoGram* source, string albumTitle, string photoTitle) const;
+        bool displayLocalPhoto(string albumTitle, string photoTitle) const;
+        void printLocalAlbums() const;
+        void displayLocalAlbums() const;
 };
 
 

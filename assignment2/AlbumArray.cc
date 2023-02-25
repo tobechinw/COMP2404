@@ -7,11 +7,7 @@ AlbumArray::AlbumArray() {
 }
 
 AlbumArray::~AlbumArray() {
-//    for(int i = 0; i < numAlbums; ++i){
-//        delete albumArray[i];
-//    }
-//
-//    delete [] albumArray;
+    delete [] albumArray;
 }
 
 AlbumArray::AlbumArray(const AlbumArray &albumArr): numAlbums(albumArr.numAlbums) {
@@ -33,9 +29,6 @@ bool AlbumArray::add(Album *album) {
     if(isFull()){
         return false;
     }
-//    photoPtrs[numPhotos] = photo;
-//    numPhotos++;
-//    return true;
 
     if(numAlbums == 0){
         albumArray[numAlbums] = album;

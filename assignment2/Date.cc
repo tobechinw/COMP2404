@@ -15,6 +15,7 @@ Date::Date(const Date& d){
 	//cout<<endl<<"in Date COPY ctor"<<endl;
 }
 
+Date::~Date(){}
 
 //setters
 void Date::setDay(int d){
@@ -94,6 +95,7 @@ void Date::addDays(int num){
 
 void Date::print() const{
 	cout << getMonthName()<<" "<<day<<", "<<year<<endl;
+//    cout << day<< " "<< year<<endl;
 }
 
 

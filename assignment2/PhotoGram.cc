@@ -13,31 +13,49 @@ PhotoGram::~PhotoGram() {
 
 bool PhotoGram::addAlbum(string title, string description) {
     Album* album = new Album(title, description);
-    return albumArray->add(album);
+    if(!albumArray->add(album)){
+        cout<<"Album could not be added"<<endl;
+        delete album;
+        return false;
+    }
+    return true;
 }
 
 bool PhotoGram::removeAlbum(string albumTitle){
-    return albumArray->remove(albumTitle);
+    if(!albumArray->remove(albumTitle)){
+        cout<<"Album could not be removed"<<endl;
+        return false;
+    }
+    return true;
 }
 
 bool PhotoGram::addPhoto(string albumTitle, Photo photo) {
     Album* album = albumArray->get(albumTitle);
     if(album != nullptr){
         Photo* photo1 = new Photo(photo);
-        return albumArray->get(albumTitle)->addPhoto(photo1);
+        if(!albumArray->get(albumTitle)->addPhoto(photo1)){
+            cout<<"Photo could not be added"<<endl;
+            delete photo1;
+            return false;
+        }
+        return true;
     }
-
+    cout<<"Album not found"<<endl;
     return false;
 }
 
-bool PhotoGram::removePhoto(string albumTitle, string photoTitle) {
+bool PhotoGram::removePhoto(string albumTitle, string photoTitle){
     Album* album = albumArray->get(albumTitle);
     if(album != nullptr){
         Photo* photo = albumArray->get(albumTitle)->removePhoto(photoTitle);
         if(photo != nullptr){
             return true;
+        }else{
+            cout<<"Photo could not be found"<<endl;
+            return false;
         }
     }
+    cout<<"Album could not be found"<<endl;
     return false;
 }
 
