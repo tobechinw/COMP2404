@@ -17,13 +17,13 @@ void Franchise::print() const{
     cout<<". This entity is a franchise."<<endl;
 }
 
-void Franchise::printMenu() const{
+void Franchise::printMenu(){
     for(int i = 0; i < MENU_ITEMS; ++i){
         cout<<menu[i]<<endl;
     }
 }
 
-string Franchise::getMenu(int index) const{
+string Franchise::getMenu(int index){
     if(index < 0 || index > MENU_ITEMS){
         return "unknown menu item";
     }

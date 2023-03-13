@@ -13,6 +13,7 @@ class Order{
         Location* location;
     public:
         Order(const string &customerName, int item, Location location1);
+        ~Order();
         Location * getLocation() const;
         void print() const;
 };

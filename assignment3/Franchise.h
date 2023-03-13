@@ -13,8 +13,8 @@ public:
     Franchise(const string& name, Location location1);
     Franchise();
     void print() const;
-    static void printMenu() const;
-    static string getMenu(int index) const;
+    static void printMenu();
+    static string getMenu(int index);
 };
 
 #endif

@@ -8,6 +8,10 @@ Location *Order::getLocation() const{
     return location;
 }
 
+Order::~Order() {
+    delete location;
+}
+
 void Order::print() const{
     cout<<"The customer name is "<<customerName<<" and the menu item is "<<menuItem<<endl;
 }

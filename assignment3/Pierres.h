@@ -15,6 +15,7 @@ private:
     Franchise* findClosestFranchise(Location location) const;
 public:
     Pierres();
+    ~Pierres();
     void addDriver(string name, Location location);
     void addFranchise(string name, Location location);
     void takeOrder(string customerName, int menuItem, Location location);

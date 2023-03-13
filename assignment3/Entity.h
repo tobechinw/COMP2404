@@ -16,6 +16,7 @@ protected:
 
 public:
     Entity(char, int, const string&, Location);
+    ~Entity();
     Location* getLocation() const;
     void setLocation(Location location1);
     int getNumOrders() const;
@@ -25,9 +26,6 @@ public:
     bool equals(string otherID) const;
 
 };
-
-
-
 
 
 

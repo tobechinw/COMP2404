@@ -3,6 +3,15 @@
 
 Pierres::Pierres() {}
 
+Pierres::~Pierres() {
+    for(int i = 0; i < drivers.size(); ++i){
+        delete drivers.at(i);
+    }
+    for(int j = 0; j < franchises.size(); ++j){
+        delete franchises.at(j);
+    }
+}
+
 void Pierres::addDriver(string name, Location location) {
     Driver* driver = new Driver(name, location);
     drivers.push_back(driver);
@@ -32,6 +41,10 @@ void Pierres::driverPickup(string franchiseId, int numOrders) {
         cout<<"Franchise with that ID does not exist"<<endl;
         return;
     }
+    if(franchise->getNumOrders() == 0){
+        cout<<"Franchise has no orders"<<endl;
+        return;
+    }
     Driver* driver = findClosestDriver(*franchise->getLocation());
     if(driver == nullptr){
         cout<<"Driver not found"<<endl;
@@ -45,7 +58,6 @@ void Pierres::driverPickup(string franchiseId, int numOrders) {
     }
 
     for(int i = 0; i < numOrders; ++i){
-        cout<<"in loop"<<endl;
         driver->addOrder(franchise->getNextOrder());
     }
     cout<<"Driver has picked up orders and is on the move"<<endl;
@@ -60,6 +72,10 @@ void Pierres::driverDeliver(string driverId, int numOrders) {
     }
     if(driver == nullptr){
         cout<<"Driver with that ID does not exist"<<endl;
+        return;
+    }
+    if(driver->getNumOrders() == 0){
+        cout<<"Driver has no orders"<<endl;
         return;
     }
 

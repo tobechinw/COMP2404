@@ -8,6 +8,11 @@ Entity::Entity(char idChar, int idInt, const string& entName, Location location1
     orders = new Queue();
 }
 
+Entity::~Entity() {
+    delete orders;
+    delete location;
+}
+
 void Entity::setLocation(Location location1) {
     location->setLocation(location1.getX(), location1.getY());
 }

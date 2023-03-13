@@ -12,6 +12,8 @@ Driver::Driver(const string& name, Location location1): Entity(code, nextId, nam
     nextId++;
 }
 
+
+
 bool Driver::isFree() const{
     return orders->empty();
 }

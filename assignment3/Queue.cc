@@ -11,6 +11,14 @@ Queue::Queue() {
 
 Queue::~Queue() {
     cout<<"queue ctor"<<endl;
+    Node* curr = head;
+    Node* prev;
+
+    while(curr!= nullptr){
+        prev = curr;
+        curr = curr->next;
+        delete prev;
+    }
 }
 
 int Queue::size() const{
@@ -56,7 +64,6 @@ Order *Queue::popFirst() {
         tail = NULL;
     }
 
+    delete tmp;
     return ret;
-
-//    return nullptr;
 }
