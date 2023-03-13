@@ -1,7 +1,7 @@
 objects = main.o Controller.o View.o Pierres.o Entity.o Queue.o Order.o Driver.o Franchise.o Location.o
 
 a3: $(objects)
-	g++ -g -o a3 $(objects)
+	g++ -o a3 $(objects)
 
 main.o: main.cc Controller.h 
 	g++ -c main.cc 
