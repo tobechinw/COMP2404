@@ -15,8 +15,9 @@ protected:
     Queue* orders;
 
 public:
-    Entity(char, int, string, Location);
-    Location* getLocation();
+    Entity(char, int, const string&, Location);
+    ~Entity();
+    Location* getLocation() const;
     void setLocation(Location location1);
     int getNumOrders() const;
     Order* getNextOrder();
@@ -25,5 +26,7 @@ public:
     bool equals(string otherID) const;
 
 };
+
+
 
 #endif

@@ -10,9 +10,10 @@ private:
     static int nextId;
     static const string menu[MENU_ITEMS];
 public:
-    Franchise(string name, Location location1);
-    Franchise(const string& name);
-    void print();
+    Franchise(const string& name, Location location1);
+    Franchise(const string&);
+    Franchise();
+    void print() const;
     static void printMenu();
     static string getMenu(int index);
 };

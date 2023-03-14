@@ -2,15 +2,21 @@
 
 using namespace std;
 
-int Driver::nextId = 0;
+int Driver::nextId = 1;
 
 Driver::Driver(const string& name): Entity(code, nextId, name, Location(0, 0)) {
+    nextId++;
+}
+
+Driver::Driver(): Entity(code, nextId, "Tobechi", Location(0,0)) {
     nextId++;
 }
 
 Driver::Driver(const string& name, Location location1): Entity(code, nextId, name, location1){
     nextId++;
 }
+
+
 
 bool Driver::isFree() const{
     return orders->empty();

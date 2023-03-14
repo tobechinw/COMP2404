@@ -11,7 +11,7 @@ void Location::setLocation(int x, int y){
     this->y = y;
 }
 
-int Location::getDistance(const Location& l) const{
+int Location::getDistance(const Location& l){
     return abs(l.x-x)+abs(l.y-y);
 }
 

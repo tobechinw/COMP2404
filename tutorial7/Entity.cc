@@ -3,9 +3,14 @@
 using namespace std;
 
 
-Entity::Entity(char idChar, int idInt, string entName, Location location1): id(to_string(idInt) + idChar), name(entName){
+Entity::Entity(char idChar, int idInt, const string& entName, Location location1): id( idChar + to_string(idInt)) , name(entName){
     location = new Location(location1.getX(), location1.getY());
     orders = new Queue();
+}
+
+Entity::~Entity() {
+    delete orders;
+    delete location;
 }
 
 void Entity::setLocation(Location location1) {
@@ -24,7 +29,7 @@ void Entity::addOrder(Order *order) {
     return orders->addLast(order);
 }
 
-Location *Entity::getLocation() {
+Location *Entity::getLocation() const{
     return location;
 }
 

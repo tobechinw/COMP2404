@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int Driver::nextId = 0;
+int Driver::nextId = 1;
 
 Driver::Driver(): Entity(code, nextId, "Tobechi", Location(0, 0)) {
     nextId++;

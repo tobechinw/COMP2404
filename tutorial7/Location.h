@@ -10,9 +10,9 @@ class Location {
     public:
         Location(int x=0, int y=0);
         void setLocation(int x, int y);
-        int getX() const{return x;}
-        int getY() const{return y;}
-        int getDistance(const Location& l) const;
+        int getX(){return x;}
+        int getY(){return y;}
+        int getDistance(const Location& l);
         void print() const;
         int x, y;
     private:

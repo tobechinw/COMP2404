@@ -14,9 +14,9 @@ class Queue {
     public:
         Queue();
         ~Queue();
-        bool empty();
-        int size();
-        Order* peekFirst();
+        bool empty() const;
+        int size() const;
+        Order* peekFirst() const;
         Order* popFirst();
         void addLast(Order* order);
 

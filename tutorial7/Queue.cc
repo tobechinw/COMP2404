@@ -11,13 +11,21 @@ Queue::Queue() {
 
 Queue::~Queue() {
     cout<<"queue ctor"<<endl;
+    Node* curr = head;
+    Node* prev;
+
+    while(curr!= nullptr){
+        prev = curr;
+        curr = curr->next;
+        delete prev;
+    }
 }
 
-int Queue::size() {
+int Queue::size() const{
     return numOrders;
 }
 
-bool Queue::empty() {
+bool Queue::empty() const{
     return size() == 0;
 }
 
@@ -36,7 +44,7 @@ void Queue::addLast(Order *order) {
     numOrders++;
 }
 
-Order *Queue::peekFirst() {
+Order *Queue::peekFirst() const{
     if(empty()){
         return nullptr;
     }
@@ -48,7 +56,6 @@ Order *Queue::popFirst() {
     if(empty()){
         return nullptr;
     }
-
     Node* tmp = head;
     Order* ret = tmp->data;
     head = head->next;
@@ -57,7 +64,6 @@ Order *Queue::popFirst() {
         tail = NULL;
     }
 
+    delete tmp;
     return ret;
-
-//    return nullptr;
 }

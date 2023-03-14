@@ -12,7 +12,8 @@ private:
 
 public:
     Driver(const string& name, Location location1);
-    Driver(const string& name);
+    Driver(const string&);
+    Driver();
     bool isFree() const;
     void print() const;
 };

@@ -12,6 +12,7 @@ private:
 public:
     Franchise(const string& name, Location location1);
     Franchise();
+
     void print() const;
     static void printMenu();
     static string getMenu(int index);

@@ -33,7 +33,7 @@ int main(){
 // make some franchises and check their id number
 int franchiseIdTest(){
     int nums[ARR] = {4,0,1,3,2};
-    string strs[ARR] = {"C5","C1","C2","C4", "C3"}; 
+    string strs[ARR] = {"F5","F1","F2","F4", "F3"}; 
     Franchise* franchises[ARR];
     for (int i = 0; i < ARR; ++i){
       franchises[i] = new Franchise(names[i]);
@@ -57,7 +57,7 @@ int franchiseIdTest(){
         //reset the stream
         strCout.str(std::string());
         //search the output
-        if (output.find(strs[i])){
+        if (output.find(strs[i])!=std::string::npos){
           cout << strs[i]<<" found, success!"<<endl;
         }else{
           cout << strs[i]<<" not found, test failed!"<<endl;
@@ -71,7 +71,7 @@ int franchiseIdTest(){
 // make some drivers and check their id number
 int driverIdTest(){
     int nums[ARR] = {4,0,1,3,2};
-    string strs[ARR] = {"D5","D1","D2","D4", "D3"}; 
+    string strs[ARR] = {"D5","D1","D2","D4","D3"}; 
     Driver* drivers[ARR];
     for (int i = 0; i < ARR; ++i){
       drivers[i] = new Driver(names[i]);
@@ -95,7 +95,7 @@ int driverIdTest(){
         //reset the stream
         strCout.str(std::string());
         //search the output
-        if (output.find(strs[i])){
+        if (output.find(strs[i])!=std::string::npos){
           cout << strs[i]<<" found, success!"<<endl;
         }else{
           cout << strs[i]<<" not found, test failed!"<<endl;
