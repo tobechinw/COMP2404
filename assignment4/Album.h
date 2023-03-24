@@ -4,14 +4,13 @@
 #include <iostream>
 #include <string>
 #include "Photo.h"
-#include "PhotoArray.h"
 
 
 class Album{
     private:
         string title;
         string description;
-        PhotoArray *photoArray;
+        Array<Photo*> photoArray;
 
     public:
         Album(const string& title, const string& description);
