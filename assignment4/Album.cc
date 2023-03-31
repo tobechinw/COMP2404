@@ -2,17 +2,8 @@
 
 using namespace std;
 
-Album::Album(const string &title, const string &description) : title(title), description(description), photoArray(new PhotoArray()) {}
 
-
-Album::Album(const Album &album): title(album.title), description(album.description) {
-    photoArray = new PhotoArray(* album.photoArray);
-}
-
-
-Album::~Album() {
-    delete photoArray;
-}
+Album::Album(const string &title, const string &description): title(title), description(description) {}
 
 string Album::getTitle() const{
     return title;
@@ -22,43 +13,32 @@ bool Album::equals(string albumTitle) const{
     return title == albumTitle;
 }
 
-bool Album::lessThan(Album &alb) const{
-    return title < alb.title;
-}
-
-bool Album::addPhoto(Photo* photo) {
-    return photoArray->add(photo);
-}
-
-bool Album::addPhoto(int index, Photo *photo) {
-    return photoArray->add(index, photo);
+void Album::addPhoto(Photo* photo) {
+    return photoArray.add(photo);
 }
 
 Photo *Album::getPhoto(int index) const{
-    return photoArray->get(index);
+    return photoArray[index];
 }
 
-Photo *Album::getPhoto(string title) const{
-    return photoArray->get(title);
+void Album::print(ostream& os) const{
+    os<<"Album title is "<<title<<" and description is "<<description<<endl;
 }
 
-Photo *Album::removePhoto(string songTitle) {
-    return photoArray->remove(songTitle);
-}
-
-Photo *Album::removePhoto(int index) {
-    return photoArray->remove(index);
-}
-
-void Album::print() const{
-    cout<<"Album title is "<<title<<" and description is "<<description<<endl;
-}
-
-void Album::display() const{
-    print();
-    photoArray->display();
+void Album::display(ostream& os) const{
+    print(os);
+    for(int i = 0; i < photoArray.size(); ++i){
+        photoArray[i]->display(os);
+    }
 }
 
 int Album::size() const{
-    return photoArray->size();
+    return photoArray.size();
 }
+
+
+ostream& operator<<(ostream& os, const Album & album){
+    album.print(os);
+    return os;
+}
+

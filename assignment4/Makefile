@@ -3,17 +3,16 @@ objects = Date.o main.o View.o AlbumCreator.o PhotoGram.o MediaFactory.o Criteri
 a4: $(objects)
 	g++ -o a4 $(objects)
 
-main.o: main.cc
-	g++ -c main.cc 
+main.o: main.cc Array.h
+	g++ -c main.cc
 
-View.o: View.h View.cc 
+View.o: View.h View.cc
 	g++ -c View.cc
 
-AlbumCreator.o: AlbumCreator.h AlbumCreator.cc 
+AlbumCreator.o: AlbumCreator.h AlbumCreator.cc Array.h
 	g++ -c AlbumCreator.cc
 
-
-PhotoGram.o: PhotoGram.h PhotoGram.cc
+PhotoGram.o: PhotoGram.h PhotoGram.cc Array.h
 	g++ -c PhotoGram.cc
 
 MediaFactory.o: MediaFactory.h MediaFactory.cc
@@ -24,12 +23,12 @@ Criteria.o: Criteria.cc Criteria.h
 
 Album.o: Album.cc Album.h
 	g++ -c Album.cc
-	
-Photo.o: Photo.cc Photo.h 
+
+Photo.o: Photo.cc Photo.h
 	g++ -c Photo.cc
 
-Date.o: Date.cc Date.h 
+Date.o: Date.cc Date.h
 	g++ -c Date.cc
 
 clean:
-	rm -f a4 *.o	
+	rm -f a4 *.o

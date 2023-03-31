@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include "Array.h"
 #include "Album.h"
+#include "Photo.h"
 
 using namespace std;
 

@@ -126,6 +126,7 @@ void AlbumCreator::getPhotosByDate(){
     Date before, after;
     view.promptDates(before, after);
     const Criteria* crit = mf.dateCriteria(before, after);
+    crit->print(cout);
     cout<<*crit<<endl;    
     currentPhotos.clear();
     pg.getPhotos(*crit, currentPhotos);

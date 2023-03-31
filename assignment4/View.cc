@@ -28,7 +28,7 @@ void View::mainMenu(const string* menu, int numOptions, int& choice)
 void View::printAlbums(const Array<Album*>& albums){
   for (int i = 0; i < albums.size(); ++i){
     cout <<i+1<<": "<< endl << *albums[i] <<endl;
-  } 
+  }
 }
 
 void View::displayAlbum(const Album& album){
@@ -38,7 +38,7 @@ void View::displayAlbum(const Album& album){
 void View::printPhotos(const Array<Photo*>& photos){
   for (int i = 0; i < photos.size(); ++i){
     cout <<i+1<<": " << endl << *photos[i] <<endl;
-  } 
+  }
 }
 
 

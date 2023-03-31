@@ -3,9 +3,13 @@
 
 #include <iostream>
 #include <string>
+#include "Array.h"
+#include "Photo.h"
+#include "Album.h"
 #include "PhotoGram.h"
 #include "View.h"
 #include "MediaFactory.h"
+
 
 using namespace std;
 

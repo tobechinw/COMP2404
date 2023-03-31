@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
+#include "Criteria.h"
 
 Date MediaFactory::toDate(const string& d){
     stringstream ss;
@@ -47,15 +48,19 @@ Photo* MediaFactory::uploadPhoto(const string& t){
 
 // create Criteria
 Criteria* MediaFactory::dateCriteria(const Date& start, const Date& end){
-
+    Criteria* criteria = new Date_Criteria(start, end);
+    return criteria;
 }
 Criteria* MediaFactory::categoryCriteria(const string& cat){
-
+    Criteria* criteria = new Cat_Criteria(cat);
+    return criteria;
 }
 Criteria* MediaFactory::dateAndCatCriteria(const Date& start, const Date& end, const string& cat){
-
+    Criteria* criteria = new CandD_Criteria(start, end, cat);
+    return criteria;
 }
 
 Album* MediaFactory::createAlbum(const string& title, const string& description){
-
+    Album* album = new Album(title, description);
+    return album;
 }
