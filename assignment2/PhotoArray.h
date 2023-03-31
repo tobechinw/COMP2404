@@ -2,7 +2,7 @@
 #define PHOTOARRAY_H
 #include <iostream>
 #include <string>
-#include "Photo.h"
+#include "../assignment4/Photo.h"
 #include "defs.h"
 
 

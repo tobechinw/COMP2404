@@ -1,7 +1,7 @@
 #ifndef ALBUMARRAY_H
 #define ALBUMARRAY_H
 #include "defs.h"
-#include "Album.h"
+#include "../assignment4/Album.h"
 
 
 class AlbumArray{

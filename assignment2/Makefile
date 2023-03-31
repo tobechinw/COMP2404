@@ -3,13 +3,13 @@ all: a2
 a2: PhotoArray.o Photo.o Album.o AlbumArray.o PhotoGram.o Client.o TestControl.o TestView.o Date.o main.cc
 	g++ -g -o a2 PhotoArray.o Photo.o Album.o AlbumArray.o PhotoGram.o Client.o TestControl.o TestView.o Date.o main.cc
 
-Photo.o: Photo.h Photo.cc Date.o
+Photo.o: ../assignment4/Photo.h ../assignment4/Photo.cc Date.o
 	g++ -c Photo.cc
 
 PhotoArray.o: PhotoArray.cc PhotoArray.h Photo.o
 	g++ -c PhotoArray.cc
 
-Album.o: Album.cc Album.h Photo.o PhotoArray.o
+Album.o: ../assignment4/Album.cc ../assignment4/Album.h Photo.o PhotoArray.o
 	g++ -c Album.cc
 
 AlbumArray.o: AlbumArray.cc AlbumArray.h Album.o

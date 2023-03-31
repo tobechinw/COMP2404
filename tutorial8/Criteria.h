@@ -47,18 +47,9 @@ class Date_Criteria: virtual public Criteria{
 class CandD_Criteria: public Date_Criteria, public Cat_Criteria {
     public:
 
-        CandD_Criteria(const Date& start, const Date& end, const string& myCategory): Cat_Criteria(myCategory), Date_Criteria(start, end){
-            cout<<"candd constructor, category is "<<category<<endl;
-        }
-//    protected:
-//        Date startDate;
-//        Date endDate;
-//        string category;
+        CandD_Criteria(const Date& start, const Date& end, const string& myCategory): Cat_Criteria(myCategory), Date_Criteria(start, end){}
         virtual bool matches(const Photo &photo) const override{
             return Date_Criteria::matches(photo) && Cat_Criteria::matches(photo);
-//            cout<<"category is "<<category<<endl;
-//            cout<<"photo category is "<<photo.getCategory()<<endl;
-//            return category == photo.getCategory() && photo.getDate() >= startDate && photo.getDate() <= endDate;
         }
 
         virtual void print(ostream &os) const override{

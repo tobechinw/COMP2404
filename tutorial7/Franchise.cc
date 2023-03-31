@@ -14,7 +14,7 @@ Franchise::Franchise(const string& name): Entity(Franchise::code, Franchise::nex
 Franchise::Franchise(): Entity(code, nextId, "Uber Eats", Location(0,0)) {
     nextId++;
 }
-//Franchise::Franchise(const string &) {}
+
 
 void Franchise::print() const{
     cout<<"The ID of this entity is "<< id<<", with name "<<name<<". The number of orders is "<<getNumOrders()<<" and the location is ";
