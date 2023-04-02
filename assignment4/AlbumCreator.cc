@@ -111,6 +111,7 @@ void AlbumCreator::getPhotosByCandD(){
     cout<<*crit<<endl;
     currentPhotos.clear();
     pg.getPhotos(*crit, currentPhotos);
+    delete crit;
 } 
 
 void AlbumCreator::getPhotosByCat(){
@@ -120,6 +121,7 @@ void AlbumCreator::getPhotosByCat(){
     cout<<*crit<<endl;
     currentPhotos.clear();
     pg.getPhotos(*crit, currentPhotos);
+    delete crit;
 } 
 
 void AlbumCreator::getPhotosByDate(){
@@ -130,6 +132,7 @@ void AlbumCreator::getPhotosByDate(){
     cout<<*crit<<endl;    
     currentPhotos.clear();
     pg.getPhotos(*crit, currentPhotos);
+    delete crit;
 }
 
 

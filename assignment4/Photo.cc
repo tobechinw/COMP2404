@@ -4,11 +4,10 @@
 
 using namespace std;
 
-Photo::Photo(const string &photoTitle, const string& category, const Date &date, const string &content): title(photoTitle), category(category), createdAt(new Date(date)), photoContent(content){
-//    cout<<photoContent<<endl;
-}
+Photo::Photo(const string &photoTitle, const string& category, const Date &date, const string &content): title(photoTitle), category(category), createdAt(new Date(date)), photoContent(content){}
 
-//Photo::Photo(): title("tobechi's photo"), category("A"), createdAt(new Date(2023,1,1)), photoContent("RCMP Violation") {}
+// default constructor
+Photo::Photo(): title("tobechi's photo"), category("A"), createdAt(new Date(2023,1,1)), photoContent("RCMP Violation") {}
 
 Photo::~Photo(){
     delete createdAt;
@@ -26,7 +25,7 @@ bool Photo::equals(string photoTitle) const{
 }
 
 void Photo::print(ostream& os) const{
-    os<<"The name of this photo is "<<title<<" and it was created on ";
+    os<<"The name of this photo is "<<getTitle()<<", under the " <<getCategory()<<" category and it was created on ";
     createdAt->print(os);
     os<<endl;
 }

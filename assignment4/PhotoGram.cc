@@ -1,46 +1,25 @@
 #include "PhotoGram.h"
 using namespace std;
 
+PhotoGram::~PhotoGram() {
+    for(int i = 0; i < photoArray.size(); ++i){
+        delete photoArray[i];
+    }
 
-//class PhotoGram{
-//private:
-//    Array<Album*> albumArray;
-//    Array<Photo*> photoArray;
-//    MediaFactory* mediaFactory;
-//public:
-//    PhotoGram();
-//    ~PhotoGram();
-//    bool addAlbum(string albumTitle, string description);
-//    void addToAlbum(Array<Photo*> photoArray, int index);
-//    void uploadPhoto(const string& title);
-//    void deleteAlbum(int index);
-//    void getPhotos(Criteria* criteria, Array<Photo*>);
-//    void displayAlbum(int index, View&);
-//    int printAlbums(View&);
-//    void displayPhoto(int index, View&);
-//    int printPhotos(View&);
-//};
-
-
-
-//PhotoGram::PhotoGram() {
-//    mediaFactory = new MediaFactory()
-//
-//    albumArray = new AlbumArray();
-//}
-
-//PhotoGram::~PhotoGram() {
-//    delete albumArray;
-//}
+    for(int i = 0; i < albumArray.size(); ++i){
+        delete albumArray[i];
+    }
+}
 
 void PhotoGram::addAlbum(string albumTitle, string description) {
-    Album* album = mediaFactory->createAlbum(albumTitle, description);
-    albumArray.add(album);
+    Album* album = mediaFactory.createAlbum(albumTitle, description);
+    albumArray+=album;
 }
 
 void PhotoGram::addToAlbum(int index, Array<Photo *> photoArr) {
-    if(index > albumArray.size() || index < 0){
+    if(index < 0 || index > photoArray.size()){
         cerr<<"Invalid index"<<endl;
+        exit(1);
     }
 
     for(int i = 0; i < photoArr.size(); ++i){
@@ -49,22 +28,22 @@ void PhotoGram::addToAlbum(int index, Array<Photo *> photoArr) {
 }
 
 void PhotoGram::uploadPhoto(const string &title) {
-    Photo* photo = mediaFactory->uploadPhoto(title);
-    photoArray.add(photo);
+    Photo* photo = mediaFactory.uploadPhoto(title);
+    photoArray+=photo;
 }
 
 void PhotoGram::deleteAlbum(int index) {
     if(index > albumArray.size() || index < 0){
         cerr<<"Invalid index"<<endl;
+        exit(1);
     }
-
-    albumArray.remove(albumArray[index]);
+    albumArray-=albumArray[index];
 }
 
 void PhotoGram::getPhotos(const Criteria& criteria, Array<Photo *>& photoArr) const{
-    for(int i = 0; i < photoArr.size(); ++i){
-        if(criteria.matches(*photoArr[i])){
-            photoArr.add(photoArr[i]);
+    for(int i = 0; i < photoArray.size(); ++i){
+        if(criteria.matches(*photoArray[i])){
+            photoArr+=photoArray[i];
         }
     }
 }

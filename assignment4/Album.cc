@@ -5,6 +5,10 @@ using namespace std;
 
 Album::Album(const string &title, const string &description): title(title), description(description) {}
 
+Album::~Album() {
+    cout<<"Album d'tor"<<endl;
+}
+
 string Album::getTitle() const{
     return title;
 }
@@ -14,7 +18,7 @@ bool Album::equals(string albumTitle) const{
 }
 
 void Album::addPhoto(Photo* photo) {
-    return photoArray.add(photo);
+    photoArray.add(photo);
 }
 
 Photo *Album::getPhoto(int index) const{

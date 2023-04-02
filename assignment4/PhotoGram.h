@@ -17,10 +17,9 @@ class PhotoGram{
     private:
         Array<Album*> albumArray;
         Array<Photo*> photoArray;
-        MediaFactory* mediaFactory;
+        MediaFactory mediaFactory;
     public:
-//        PhotoGram();
-//        ~PhotoGram();
+        ~PhotoGram();
         void addAlbum(string albumTitle, string description);
         void addToAlbum(int index, Array<Photo*> photoArray);
         void uploadPhoto(const string& title);

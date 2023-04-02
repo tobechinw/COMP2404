@@ -25,6 +25,7 @@ class Array {
         Array<T>& operator+=(const T&);
         Array<T>& operator-=(const T&);
         T& operator[](int) const;
+        T& operator[](int);
 		int size() const;
         void clear();
 		bool isFull() const;
@@ -37,8 +38,8 @@ class Array {
 
 template <class T>
 Array<T>& Array<T>::operator+=(const T& elem){
-    if(numElements < MAX_ARRAY){
-        elements[numElements++] = elem;
+    if(!isFull()){
+        add(elem);
     }
 
     return *this;
@@ -49,14 +50,9 @@ Array<T>& Array<T>::operator-=(const T& elem){
 
     for(int i = 0; i < numElements; ++i){
         if(elements[i] == elem){
-            for(int j = i; j < numElements - 1; ++j){
-                elements[j] = elements[j + 1];
-            }
-            numElements--;
-            break;
+            remove(elem);
         }
     }
-
     return *this;
 }
 
@@ -69,9 +65,7 @@ Array<T>::Array(){
 
 
 template <class T>
-Array<T>::~Array(){
-    delete [] elements;
-}
+Array<T>::~Array(){}
 
 
 template <class T>
@@ -98,8 +92,6 @@ void Array<T>::remove(T t){
     }
 }
 
-
-
 template <class T>
 int Array<T>::size() const{
     return numElements;
@@ -124,6 +116,17 @@ T& Array<T>::operator[](int index) const{
     }
     return elements[index];
 }
+
+
+template <class T>
+T& Array<T>::operator[](int index){
+    if (index < 0 || index >= numElements) {
+        cerr<<"Array index out of bounds"<<endl;
+        exit(1);
+    }
+    return elements[index];
+}
+
 
 
 
